@@ -1,17 +1,17 @@
-// Load careers.json when the page starts
+// Load careers.json when page loads
 let careerData = {};
 
 fetch("data/careers.json")
     .then(response => response.json())
     .then(data => {
         careerData = data;
-        console.log("Career data loaded:", careerData);
+        console.log("Career data loaded:", careerData.careers);
     })
     .catch(error => {
         console.error("Error loading career data:", error);
     });
 
-
+// Handle Search Button Click
 document.getElementById("searchBtn").addEventListener("click", () => {
     const query = document.getElementById("searchInput").value.trim();
 
@@ -23,20 +23,22 @@ document.getElementById("searchBtn").addEventListener("click", () => {
     searchCareer(query);
 });
 
-
+// Search Career Function
 function searchCareer(query) {
     const formatted = query.toLowerCase();
 
-    // Find a matching career
-    let foundCareer = null;
+    // careers array from JSON
+    const careersArray = careerData.careers;
 
-    for (let careerName in careerData) {
-        if (careerName.toLowerCase() === formatted) {
-            foundCareer = careerData[careerName];
-            foundCareer.name = careerName;
-            break;
-        }
+    if (!careersArray) {
+        displayMessage("Career data not loaded yet. Please try again.");
+        return;
     }
+
+    // find matching career
+    const foundCareer = careersArray.find(career =>
+        career.name.toLowerCase() === formatted
+    );
 
     if (!foundCareer) {
         displayMessage("No career found. Try another search.");
@@ -46,7 +48,6 @@ function searchCareer(query) {
     displayCareerInfo(foundCareer);
 }
 
-
 function displayCareerInfo(career) {
     document.getElementById("results-section").innerHTML = `
         <div class="result-card">
@@ -54,22 +55,23 @@ function displayCareerInfo(career) {
 
             <p><strong>Description:</strong> ${career.description}</p>
 
-            <p><strong>Difficulty:</strong> ${career.difficulty}</p>
+            <p><strong>Salary Range:</strong> ${career.salary}</p>
 
             <p><strong>Key Skills:</strong></p>
             <ul>
                 ${career.skills.map(skill => `<li>${skill}</li>`).join("")}
             </ul>
 
-            <p><strong>Learning Path:</strong></p>
-            <ol>
-                ${career.path.map(step => `<li>${step}</li>`).join("")}
-            </ol>
+            <p><strong>Related Careers:</strong></p>
+            <ul>
+                ${career.related.map(item => `<li>${item}</li>`).join("")}
+            </ul>
         </div>
     `;
 }
 
 
+// Display message (e.g., errors or no results)
 function displayMessage(msg) {
     document.getElementById("results-section").innerHTML = `
         <div class="result-card">
