@@ -1,4 +1,4 @@
-// Load careers.json when page loads
+// LOAD CAREERS.JSON 
 let careerData = {};
 
 fetch("data/careers.json")
@@ -11,7 +11,7 @@ fetch("data/careers.json")
         console.error("Error loading career data:", error);
     });
 
-// Handle Search Button Click
+// ------------------ SEARCH BUTTON ------------------
 document.getElementById("searchBtn").addEventListener("click", () => {
     const query = document.getElementById("searchInput").value.trim();
 
@@ -23,11 +23,9 @@ document.getElementById("searchBtn").addEventListener("click", () => {
     searchCareer(query);
 });
 
-// Search Career Function
+// ------------------ SEARCH FUNCTION ------------------
 function searchCareer(query) {
     const formatted = query.toLowerCase();
-
-    // careers array from JSON
     const careersArray = careerData.careers;
 
     if (!careersArray) {
@@ -35,7 +33,6 @@ function searchCareer(query) {
         return;
     }
 
-    // find matching career
     const foundCareer = careersArray.find(career =>
         career.name.toLowerCase() === formatted
     );
@@ -48,6 +45,7 @@ function searchCareer(query) {
     displayCareerInfo(foundCareer);
 }
 
+// ------------------ DISPLAY CAREER ------------------
 function displayCareerInfo(career) {
     document.getElementById("results-section").innerHTML = `
         <div class="result-card">
@@ -70,8 +68,7 @@ function displayCareerInfo(career) {
     `;
 }
 
-
-// Display message (e.g., errors or no results)
+// ------------------ MESSAGE BOX ------------------
 function displayMessage(msg) {
     document.getElementById("results-section").innerHTML = `
         <div class="result-card">
@@ -79,3 +76,4 @@ function displayMessage(msg) {
         </div>
     `;
 }
+

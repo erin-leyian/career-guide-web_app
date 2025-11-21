@@ -1,45 +1,136 @@
+/* ——— GLOBAL STYLE (LIGHT MODE DEFAULT) ——— */
 body {
-    font-family: Arial, sans-serif;
-    background: #f7f7f7;
     margin: 0;
-    padding: 0;
+    background: #f5f5f5;
+    color: #222;
+    font-family: Arial, sans-serif;
+    transition: background 0.3s, color 0.3s;
 }
 
-header {
-    text-align: center;
-    padding: 30px 20px;
+/* Dark Mode */
+body.dark {
+    background: #121212;
+    color: #e5e5e5;
+}
+
+/* ——— SIDEBAR ——— */
+#sidebar {
+    width: 240px;
+    background: #ffffff;
+    height: 100vh;
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+#sidebar .logo {
+    margin: 0 0 30px 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#sidebar nav a {
+    display: flex;
+    align-items: center;
+    padding: 12px 10px;
+    font-size: 17px;
+    text-decoration: none;
+    color: #333;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    transition: 0.2s;
+}
+
+#sidebar nav a span {
+    margin-right: 10px;
+}
+
+#sidebar nav a:hover {
+    background: #f0f0f0;
+}
+
+/* Dark mode - sidebar */
+body.dark #sidebar {
+    background: #1e1e1e;
+    border-right: 1px solid #333;
+}
+
+body.dark #sidebar nav a {
+    color: #ddd;
+}
+
+body.dark #sidebar nav a:hover {
+    background: #333;
+}
+
+/* ——— MAIN CONTENT ——— */
+#content {
+    margin-left: 260px;
+    padding: 30px;
+    width: calc(100% - 260px);
+    box-sizing: border-box;
+}
+
+/* ——— HEADER (Blue in light mode, grey in dark mode) ——— */
+.main-header {
     background: #4A4DE7;
     color: white;
+    text-align: center;
+    padding: 40px 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.subtitle {
-    font-size: 14px;
-    margin-top: -5px;
-    opacity: 0.8;
+.main-header .subtitle {
+    opacity: 0.9;
 }
 
+/* Dark mode header (grey) */
+body.dark .main-header {
+    background: #3a3a3a;
+}
+
+/* ——— SEARCH SECTION ——— */
 #search-section {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-    gap: 10px;
+    text-align: center;
+    margin: 30px 0;
 }
 
-#search-section input {
-    width: 300px;
-    padding: 10px;
+#searchInput {
+    width: 60%;
+    padding: 12px;
     font-size: 16px;
 }
 
-#search-section button {
-    padding: 10px 20px;
+#searchBtn {
+    padding: 12px 22px;
+    font-size: 17px;
+    cursor: pointer;
     background: #4A4DE7;
     color: white;
     border: none;
-    cursor: pointer;
-    border-radius: 4px;
+    border-radius: 5px;
 }
 
+/* Dark mode search */
+body.dark #searchInput {
+    background: #222;
+    color: white;
+    border: 1px solid #555;
+}
+
+body.dark #searchBtn {
+    background: #555;
+    border: 1px solid #666;
+}
+
+/* ——— RESULTS SECTION ——— */
 #results-section {
     max-width: 700px;
     margin: 20px auto;
@@ -49,7 +140,235 @@ header {
 .result-card {
     background: white;
     padding: 15px;
-    margin-bottom: 15px;
     border-radius: 6px;
+    margin-bottom: 15px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+body.dark .result-card {
+    background: #1c1c1c;
+    border: 1px solid #444;
+}
+
+/* ——— DARK MODE TOGGLE BUTTON (TOP-RIGHT) ——— */
+.theme-toggle-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.theme-label {
+    font-size: 14px;
+    color: #333;
+}
+
+body.dark .theme-label {
+    color: white;
+}
+
+/* Toggle switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    background-color: #ccc;
+    border-radius: 34px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: 0.4s;
+}
+
+.slider:before {
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: #4A4DE7;
+}
+
+/* Dark mode slider (grey) */
+body.dark input:checked + .slider {
+    background-color: #555;
+}
+
+input:checked + .slider:before {
+    transform: translateX(24px);
+}
+/* ---------------------------------------------------
+   HERO SECTION
+--------------------------------------------------- */
+.hero {
+    text-align: center;
+    padding: 80px 20px 40px;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.hero .subtitle {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+/* ---------------------------------------------------
+   QUICK CATEGORIES
+--------------------------------------------------- */
+.quick-categories {
+    margin-top: 40px;
+    padding: 20px;
+}
+
+.section-title {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.category-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 15px;
+}
+
+.category-card {
+    background: var(--card-bg);
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    transition: 0.3s ease;
+}
+
+.category-card:hover {
+    background: var(--hover-bg);
+    transform: translateY(-3px);
+}
+
+/* ---------------------------------------------------
+   HOW IT WORKS
+--------------------------------------------------- */
+.how-it-works {
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.step-card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 14px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.step-card:hover {
+    background: var(--hover-bg);
+    transform: translateY(-4px);
+}
+
+.step-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent-color);
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* ---------------------------------------------------
+   CTA BUTTON
+--------------------------------------------------- */
+.cta-section {
+    margin: 50px 0;
+    text-align: center;
+}
+
+.cta-btn {
+    background: var(--accent-color);
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.cta-btn:hover {
+    opacity: 0.85;
+    transform: translateY(-3px);
+}
+
+/* ---------------------------------------------------
+   FOOTER
+--------------------------------------------------- */
+.footer {
+    text-align: center;
+    padding: 30px 10px;
+    margin-top: 40px;
+    opacity: 0.7;
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* ---------------------------------------------------
+   LIGHT / DARK MODE VARIABLES
+--------------------------------------------------- */
+:root {
+    --text-color: #222;
+    --bg-color: #f5f5f5;
+    --card-bg: #ffffff;
+    --hover-bg: #f0f0f0;
+    --border-color: #ddd;
+    --accent-color: #0077ff;
+}
+
+body.dark {
+    --text-color: #f2f2f2;
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --hover-bg: #2a2a2a;
+    --border-color: #333;
+    --accent-color: #5ba0ff;
 }
