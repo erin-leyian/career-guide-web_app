@@ -1,0 +1,74 @@
+{
+  "careers": [
+    {
+      "name": "Software Engineer",
+      "description": "Software engineers design, build, and maintain applications, systems, and platforms.",
+      "skills": ["Programming", "Problem-solving", "Databases", "Version Control"],
+      "salary": "$50,000 - $120,000",
+      "related": ["Backend Developer", "Frontend Developer", "Full Stack Developer"]
+    },
+    {
+      "name": "Data Analyst",
+      "description": "Data analysts collect, clean, and analyze data to help organizations make informed decisions.",
+      "skills": ["Excel", "SQL", "Data Visualization", "Statistics"],
+      "salary": "$40,000 - $90,000",
+      "related": ["Business Analyst", "Data Scientist"]
+    },
+    {
+      "name": "UX/UI Designer",
+      "description": "UX/UI designers create user-friendly digital experiences and interfaces.",
+      "skills": ["Wireframing", "Prototyping", "User Research", "Design Thinking"],
+      "salary": "$45,000 - $100,000",
+      "related": ["Product Designer", "Graphic Designer"]
+    },
+    {
+      "name": "Cybersecurity Analyst",
+      "description": "Cybersecurity analysts protect systems and networks from cyber threats.",
+      "skills": ["Networking", "Risk Assessment", "Security Tools", "Monitoring"],
+      "salary": "$55,000 - $120,000",
+      "related": ["Security Engineer", "Penetration Tester"]
+    },
+    {
+      "name": "Digital Marketer",
+      "description": "Digital marketers promote brands using online channels and strategies.",
+      "skills": ["SEO", "Content Creation", "Analytics", "Social Media"],
+      "salary": "$35,000 - $80,000",
+      "related": ["Social Media Manager", "Brand Strategist"]
+    },
+    {
+      "name": "Project Manager",
+      "description": "Project managers plan, execute, and oversee projects to ensure successful delivery.",
+      "skills": ["Leadership", "Planning", "Communication", "Risk Management"],
+      "salary": "$50,000 - $110,000",
+      "related": ["Scrum Master", "Product Manager"]
+    },
+    {
+      "name": "Graphic Designer",
+      "description": "Graphic designers create visual content for brands, media, and campaigns.",
+      "skills": ["Illustration", "Branding", "Typography", "Adobe Suite"],
+      "salary": "$30,000 - $70,000",
+      "related": ["UI Designer", "Art Director"]
+    },
+    {
+      "name": "Nurse",
+      "description": "Nurses provide medical care, support, and treatment monitoring in healthcare settings.",
+      "skills": ["Patient Care", "Medical Knowledge", "Communication", "Teamwork"],
+      "salary": "$40,000 - $90,000",
+      "related": ["Midwife", "Clinical Officer"]
+    },
+    {
+      "name": "Teacher",
+      "description": "Teachers educate students, prepare lessons, and help shape academic development.",
+      "skills": ["Communication", "Classroom Management", "Planning", "Assessment"],
+      "salary": "$30,000 - $60,000",
+      "related": ["Tutor", "Curriculum Developer"]
+    },
+    {
+      "name": "Accountant",
+      "description": "Accountants manage financial records, audits, budgets, and tax reports.",
+      "skills": ["Accounting", "Spreadsheet Management", "Financial Analysis", "Attention to Detail"],
+      "salary": "$45,000 - $100,000",
+      "related": ["Financial Analyst", "Auditor"]
+    }
+  ]
+}
