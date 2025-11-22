@@ -1,4 +1,4 @@
-/* ——— GLOBAL STYLE (LIGHT MODE DEFAULT) ——— */
+/*style*/
 body {
     margin: 0;
     background: #f5f5f5;
@@ -13,7 +13,7 @@ body.dark {
     color: #e5e5e5;
 }
 
-/* ——— SIDEBAR ——— */
+/* SIDEBAR*/
 #sidebar {
     width: 200px;
     background: #ffffff;
@@ -67,7 +67,7 @@ body.dark #sidebar nav a:hover {
     background: #333;
 }
 
-/* ——— MAIN CONTENT ——— */
+/* MAIN CONTENT */
 #content {
     margin-left: 250px;
     padding: 30px;
@@ -75,7 +75,7 @@ body.dark #sidebar nav a:hover {
     box-sizing: border-box;
 }
 
-/* ——— HEADER (Blue in light mode, grey in dark mode) ——— */
+/* HEADER (Blue in light mode, grey in dark mode) */
 .main-header {
     background: var(--accent-color);
     color: white;
@@ -96,7 +96,7 @@ body.dark .main-header {
     background: #3a3a3a;
 }
 
-/* ——— SEARCH SECTION ——— */
+/* SEARCH SECTION */
 #search-section {
     text-align: center;
     margin: 30px 0;
@@ -130,7 +130,7 @@ body.dark #searchBtn {
     border: 1px solid #666;
 }
 
-/* ——— RESULTS SECTION ——— */
+/*RESULTS SECTION */
 #results-section {
     max-width: 700px;
     margin: 20px auto;
@@ -150,7 +150,7 @@ body.dark .result-card {
     border: 1px solid #444;
 }
 
-/* ——— DARK MODE TOGGLE BUTTON (TOP-RIGHT) ——— */
+/* DARK MODE TOGGLE BUTTON (TOP-RIGHT) */
 .theme-toggle-container {
     position: fixed;
     top: 20px;
@@ -220,9 +220,8 @@ body.dark input:checked + .slider {
 input:checked + .slider:before {
     transform: translateX(24px);
 }
-/* ---------------------------------------------------
-   HERO SECTION
---------------------------------------------------- */
+
+/*Hero SECTION*/
 .hero {
     text-align: center;
     padding: 80px 20px 40px;
@@ -240,9 +239,7 @@ input:checked + .slider:before {
     opacity: 0.8;
 }
 
-/* ---------------------------------------------------
-   QUICK CATEGORIES
---------------------------------------------------- */
+/* QUICK CATEGORIES*/
 .quick-categories {
     margin-top: 40px;
     padding: 20px;
@@ -280,9 +277,7 @@ input:checked + .slider:before {
     transform: translateY(-3px);
 }
 
-/* ---------------------------------------------------
-   HOW IT WORKS
---------------------------------------------------- */
+/* HOW IT WORKS*/
 .how-it-works {
     margin-top: 50px;
     padding: 20px;
@@ -316,9 +311,7 @@ input:checked + .slider:before {
     margin-bottom: 10px;
 }
 
-/* ---------------------------------------------------
-   CTA BUTTON
---------------------------------------------------- */
+/*   CTA BUTTON*/
 .cta-section {
     margin: 50px 0;
     text-align: center;
@@ -340,9 +333,7 @@ input:checked + .slider:before {
     transform: translateY(-3px);
 }
 
-/* ---------------------------------------------------
-   FOOTER
---------------------------------------------------- */
+/* FOOTER*/
 .footer {
     text-align: center;
     padding: 30px 10px;
@@ -352,9 +343,7 @@ input:checked + .slider:before {
     border-top: 1px solid var(--border-color);
 }
 
-/* ---------------------------------------------------
-   LIGHT / DARK MODE VARIABLES
---------------------------------------------------- */
+/*   LIGHT / DARK MODE VARIABLES*/
 :root {
     --text-color: #222;
     --bg-color: #f5f5f5;
@@ -385,7 +374,7 @@ body.dark {
     transition: 0.3s ease;
 }
 
-/* ---------- HEADINGS ---------- */
+/* HEADINGS  */
 .about-container h1, 
 .contact-container h1 {
     font-size: 2.3rem;
@@ -402,7 +391,7 @@ body.dark {
     font-weight: 600;
 }
 
-/* ---------- TEXT ---------- */
+/* TEXT  */
 .about-container p, 
 .contact-container p, 
 .contact-container label {
@@ -411,7 +400,7 @@ body.dark {
     font-size: 15px;
 }
 
-/* ---------- ICON SECTION (About Page) ---------- */
+/* ICON SECTION (About Page)  */
 .about-icons {
     display: flex;
     gap: 25px;
@@ -444,7 +433,7 @@ body.dark {
     font-weight: 600;
 }
 
-/* ---------- CONTACT FORM ---------- */
+/* CONTACT FORM*/
 .contact-container form {
     margin-top: 25px;
 }
@@ -477,7 +466,7 @@ body.dark {
     min-height: 140px;
 }
 
-/* ---------- SEND BUTTON ---------- */
+/*  SEND BUTTON  */
 .contact-container button {
     width: 100%;
     padding: 14px;
@@ -494,7 +483,7 @@ body.dark {
     background: #3c5cc5;
 }
 
-/* ---------- DARK MODE SUPPORT ---------- */
+/* DARK MODE SUPPORT */
 body.dark .about-container,
 body.dark .contact-container {
     background: #1f1f1f;
@@ -514,10 +503,6 @@ body.dark .contact-container textarea {
 }
 
 /* Icons remain blue in dark mode */
-
-/* ---------------------------------------------------
-   FILTERED CAREERS PAGE STYLING
---------------------------------------------------- */
 
 /* Page header for category results */
 .filtered-header {

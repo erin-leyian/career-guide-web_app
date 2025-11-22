@@ -1,84 +1,164 @@
 {
   "careers": [
     {
-      "name": "Software Engineer",
+      "name": "AI Prompt Engineer",
       "category": "tech",
-      "description": "Software engineers design, build, and maintain applications, systems, and platforms.",
-      "skills": ["Programming", "Problem-solving", "Databases", "Version Control"],
-      "salary": "$50,000 - $120,000",
-      "related": ["Backend Developer", "Frontend Developer", "Full Stack Developer"]
+      "description": "Prompt engineers design and refine prompts to improve AI responses and optimize model outputs.",
+      "skills": ["AI Tools", "Critical Thinking", "Technical Writing", "Python"],
+      "salary": "$70,000 - $150,000",
+      "related": ["AI Trainer", "ML Engineer", "AI Content Strategist"]
     },
     {
-      "name": "Data Analyst",
+      "name": "Autonomous Vehicle Safety Tester",
       "category": "tech",
-      "description": "Data analysts collect, clean, and analyze data to help organizations make informed decisions.",
-      "skills": ["Excel", "SQL", "Data Visualization", "Statistics"],
-      "salary": "$40,000 - $90,000",
-      "related": ["Business Analyst", "Data Scientist"]
+      "description": "Tests and evaluates self-driving car systems to ensure safety and reliability.",
+      "skills": ["Robotics", "Data Analysis", "Safety Protocols", "Machine Learning"],
+      "salary": "$60,000 - $130,000",
+      "related": ["Robotics Engineer", "Vehicle System Analyst"]
     },
     {
-      "name": "UX/UI Designer",
+      "name": "Blockchain Auditor",
+      "category": "tech",
+      "description": "Audits smart contracts and decentralized systems to detect vulnerabilities and ensure compliance.",
+      "skills": ["Smart Contracts", "Cryptography", "Solidity", "Security Analysis"],
+      "salary": "$80,000 - $160,000",
+      "related": ["Smart Contract Developer", "Security Analyst"]
+    },
+    {
+      "name": "XR (AR/VR) Experience Designer",
       "category": "creative",
-      "description": "UX/UI designers create user-friendly digital experiences and interfaces.",
-      "skills": ["Wireframing", "Prototyping", "User Research", "Design Thinking"],
-      "salary": "$45,000 - $100,000",
-      "related": ["Product Designer", "Graphic Designer"]
+      "description": "Designs immersive AR and VR environments for entertainment, education, and digital experiences.",
+      "skills": ["3D Modeling", "Unity", "UI/UX", "Creative Prototyping"],
+      "salary": "$55,000 - $140,000",
+      "related": ["Game Designer", "Creative Technologist"]
     },
     {
-      "name": "Cybersecurity Analyst",
-      "category": "tech",
-      "description": "Cybersecurity analysts protect systems and networks from cyber threats.",
-      "skills": ["Networking", "Risk Assessment", "Security Tools", "Monitoring"],
-      "salary": "$55,000 - $120,000",
-      "related": ["Security Engineer", "Penetration Tester"]
-    },
-    {
-      "name": "Digital Marketer",
-      "category": "business",
-      "description": "Digital marketers promote brands using online channels and strategies.",
-      "skills": ["SEO", "Content Creation", "Analytics", "Social Media"],
-      "salary": "$35,000 - $80,000",
-      "related": ["Social Media Manager", "Brand Strategist"]
-    },
-    {
-      "name": "Project Manager",
-      "category": "business",
-      "description": "Project managers plan, execute, and oversee projects to ensure successful delivery.",
-      "skills": ["Leadership", "Planning", "Communication", "Risk Management"],
-      "salary": "$50,000 - $110,000",
-      "related": ["Scrum Master", "Product Manager"]
-    },
-    {
-      "name": "Graphic Designer",
+      "name": "Neuro-UX Researcher",
       "category": "creative",
-      "description": "Graphic designers create visual content for brands, media, and campaigns.",
-      "skills": ["Illustration", "Branding", "Typography", "Adobe Suite"],
-      "salary": "$30,000 - $70,000",
-      "related": ["UI Designer", "Art Director"]
+      "description": "Uses neuroscience tools to understand user behavior and design intuitive interfaces.",
+      "skills": ["Biometric Analysis", "User Research", "Behavioral Psychology", "Design Thinking"],
+      "salary": "$65,000 - $140,000",
+      "related": ["UX Researcher", "Cognitive Scientist"]
     },
     {
-      "name": "Nurse",
-      "category": "health",
-      "description": "Nurses provide medical care, support, and treatment monitoring in healthcare settings.",
-      "skills": ["Patient Care", "Medical Knowledge", "Communication", "Teamwork"],
-      "salary": "$40,000 - $90,000",
-      "related": ["Midwife", "Clinical Officer"]
+      "name": "Ethical Hacker",
+      "category": "tech",
+      "description": "Identifies and fixes security vulnerabilities by ethically simulating cyberattacks.",
+      "skills": ["Penetration Testing", "Networking", "Python", "Security Tools"],
+      "salary": "$60,000 - $150,000",
+      "related": ["Red Team Specialist", "Security Engineer"]
     },
     {
-      "name": "Teacher",
+      "name": "Digital Anthropologist",
       "category": "education",
-      "description": "Teachers educate students, prepare lessons, and help shape academic development.",
-      "skills": ["Communication", "Classroom Management", "Planning", "Assessment"],
-      "salary": "$30,000 - $60,000",
-      "related": ["Tutor", "Curriculum Developer"]
+      "description": "Studies how humans interact with digital technology and online communities.",
+      "skills": ["Research", "Data Analysis", "Cultural Studies", "Interviewing"],
+      "salary": "$50,000 - $110,000",
+      "related": ["Sociologist", "UX Researcher"]
     },
     {
-      "name": "Accountant",
+      "name": "Climate Data Analyst",
+      "category": "engineering",
+      "description": "Analyzes climate data to track environmental changes and predict climate trends.",
+      "skills": ["GIS", "Statistics", "Python", "Modeling"],
+      "salary": "$55,000 - $120,000",
+      "related": ["Environmental Scientist", "Sustainability Analyst"]
+    },
+    {
+      "name": "Genetic Counselor",
+      "category": "health",
+      "description": "Helps patients understand genetic test results and their implications for health.",
+      "skills": ["Genetics", "Counseling", "Medical Knowledge", "Communication"],
+      "salary": "$70,000 - $120,000",
+      "related": ["Clinical Geneticist", "Biomedical Scientist"]
+    },
+    {
+      "name": "AI Ethics Consultant",
       "category": "business",
-      "description": "Accountants manage financial records, audits, budgets, and tax reports.",
-      "skills": ["Accounting", "Spreadsheet Management", "Financial Analysis", "Attention to Detail"],
+      "description": "Ensures AI systems are fair, transparent, and ethically aligned with human values.",
+      "skills": ["Ethics", "Policy", "AI Systems", "Critical Thinking"],
+      "salary": "$80,000 - $150,000",
+      "related": ["Policy Analyst", "AI Safety Researcher"]
+    },
+    {
+      "name": "E-Learning Experience Designer",
+      "category": "education",
+      "description": "Designs engaging digital learning content using instructional design methods.",
+      "skills": ["Curriculum Design", "Storyboarding", "Multimedia Tools", "Assessment Design"],
       "salary": "$45,000 - $100,000",
-      "related": ["Financial Analyst", "Auditor"]
+      "related": ["Learning Technologist", "Curriculum Developer"]
+    },
+    {
+      "name": "Sustainability Analyst",
+      "category": "engineering",
+      "description": "Analyzes environmental impact and helps organizations adopt sustainable practices.",
+      "skills": ["Environmental Science", "Data Reporting", "Energy Systems", "GIS"],
+      "salary": "$50,000 - $110,000",
+      "related": ["Climate Analyst", "Sustainability Consultant"]
+    },
+    {
+      "name": "Forensic Accountant",
+      "category": "business",
+      "description": "Investigates financial records to detect fraud, corruption, or misconduct.",
+      "skills": ["Audit", "Data Analysis", "Legal Knowledge", "Attention to Detail"],
+      "salary": "$65,000 - $140,000",
+      "related": ["Financial Investigator", "Fraud Analyst"]
+    },
+    {
+      "name": "Cyber Forensics Specialist",
+      "category": "tech",
+      "description": "Investigates digital crimes by recovering and analyzing electronic evidence.",
+      "skills": ["Digital Forensics", "Cybersecurity", "Data Recovery", "Law Enforcement Knowledge"],
+      "salary": "$60,000 - $130,000",
+      "related": ["Cybersecurity Analyst", "Incident Responder"]
+    },
+    {
+      "name": "Product Localization Specialist",
+      "category": "business",
+      "description": "Adapts products for different languages and cultures to reach global markets.",
+      "skills": ["Translation", "Cultural Knowledge", "Communication", "Project Management"],
+      "salary": "$45,000 - $100,000",
+      "related": ["Translator", "Marketing Specialist"]
+    },
+    {
+      "name": "Biotech Research Associate",
+      "category": "health",
+      "description": "Works on lab research for developing new medical, agricultural, or biological technologies.",
+      "skills": ["Lab Techniques", "Genetics", "Data Analysis", "Experimentation"],
+      "salary": "$50,000 - $120,000",
+      "related": ["Biochemist", "Biomedical Scientist"]
+    },
+    {
+      "name": "Creative Technologist",
+      "category": "creative",
+      "description": "Builds innovative digital experiences by blending coding with artistic design.",
+      "skills": ["Prototyping", "JavaScript", "3D Tools", "UI/UX"],
+      "salary": "$55,000 - $130,000",
+      "related": ["XR Designer", "Interaction Designer"]
+    },
+    {
+      "name": "Crowd Dynamics Analyst",
+      "category": "engineering",
+      "description": "Uses data and modeling to predict how crowds behave in large events or public spaces.",
+      "skills": ["Modeling", "Mathematics", "Urban Planning", "Simulation Tools"],
+      "salary": "$60,000 - $130,000",
+      "related": ["Urban Planner", "Safety Engineer"]
+    },
+    {
+      "name": "Food Innovation Scientist",
+      "category": "engineering",
+      "description": "Develops new food products, sustainable ingredients, and improved food processing techniques.",
+      "skills": ["Food Science", "Chemistry", "Experimentation", "Quality Control"],
+      "salary": "$50,000 - $110,000",
+      "related": ["Nutrition Scientist", "Product Developer"]
+    },
+    {
+      "name": "Product Growth Analyst",
+      "category": "business",
+      "description": "Analyzes data to identify opportunities for product growth, user retention, and feature optimization.",
+      "skills": ["SQL", "Analytics", "A/B Testing", "Product Strategy"],
+      "salary": "$60,000 - $130,000",
+      "related": ["Growth Marketer", "Product Manager"]
     }
   ]
 }

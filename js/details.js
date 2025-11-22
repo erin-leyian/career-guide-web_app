@@ -100,6 +100,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         resultsContainer.innerHTML = "";
         matches.forEach(displayCareer);
+
+
     }
 
     // Button + enter key
@@ -108,3 +110,54 @@ document.addEventListener("DOMContentLoaded", () => {
         if (e.key === "Enter") searchCareer();
     });
 });
+
+
+// JSEARCH API Integration
+
+const apiKey = "c2378a5b74msh67b299ef526d6f4p17a3b9jsna686ed4fbb3d"; 
+
+async function fetchJobs(query) {
+    const url = `https://jsearch.p.rapidapi.com/search?query=${encodeURIComponent(query)}&num_pages=1`;
+
+    const options = {
+        method: "GET",
+        headers: {
+            "x-rapidapi-key": "c2378a5b74msh67b299ef526d6f4p17a3b9jsna686ed4fbb3d",
+            "x-rapidapi-host": "jsearch.p.rapidapi.com"
+        }
+    };
+
+    const jobsContainer = document.getElementById("career-info");
+    jobsContainer.innerHTML = "<p>Searching for live jobs...</p>";
+
+    try {
+        const response = await fetch(url, options);
+        const data = await response.json();
+
+        if (!data.data || data.data.length === 0) {
+            jobsContainer.innerHTML = "<p>No live job postings found.</p>";
+            return;
+        }
+
+        jobsContainer.innerHTML = "<h2>Live Job Opportunities</h2>";
+
+        data.data.forEach(job => {
+            const jobCard = document.createElement("div");
+            jobCard.classList.add("job-card");
+
+            jobCard.innerHTML = `
+                <h3>${job.job_title}</h3>
+                <p><strong>Company:</strong> ${job.employer_name}</p>
+                <p><strong>Location:</strong> ${job.job_city || "Unknown"}</p>
+                <p>${job.job_description.substring(0, 200)}...</p>
+                <a href="${job.job_apply_link}" target="_blank" class="apply-btn">Apply</a>
+            `;
+
+            jobsContainer.appendChild(jobCard);
+        });
+
+    } catch (error) {
+        console.error(error);
+        jobsContainer.innerHTML = "<p>Error loading live jobs. Please try again later.</p>";
+    }
+}
