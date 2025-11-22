@@ -77,7 +77,7 @@ body.dark #sidebar nav a:hover {
 
 /* ——— HEADER (Blue in light mode, grey in dark mode) ——— */
 .main-header {
-    background: #4A4DE7;
+    background: var(--accent-color);
     color: white;
     text-align: center;
     padding: 40px 20px;
@@ -112,7 +112,7 @@ body.dark .main-header {
     padding: 12px 22px;
     font-size: 17px;
     cursor: pointer;
-    background: #4A4DE7;
+    background: var(--accent-color);
     color: white;
     border: none;
     border-radius: 5px;
@@ -514,3 +514,88 @@ body.dark .contact-container textarea {
 }
 
 /* Icons remain blue in dark mode */
+
+/* ---------------------------------------------------
+   FILTERED CAREERS PAGE STYLING
+--------------------------------------------------- */
+
+/* Page header for category results */
+.filtered-header {
+    text-align: center;
+    margin: 20px 0 30px;
+}
+
+.filtered-header h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+.category-badge {
+    display: inline-block;
+    background: var(--accent-color);
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Careers grid */
+#careers-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    padding: 10px;
+}
+
+/* Career card */
+.career-card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 14px;
+    border: 1px solid var(--border-color);
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.career-card:hover {
+    background: var(--hover-bg);
+    transform: translateY(-5px);
+}
+
+.career-card h3 {
+    margin: 0 0 10px;
+    font-size: 1.3rem;
+    color: var(--text-color);
+}
+
+.career-card p {
+    opacity: 0.8;
+    line-height: 1.4;
+}
+
+/* No results */
+.no-results {
+    text-align: center;
+    font-size: 1.2rem;
+    opacity: 0.7;
+    margin-top: 40px;
+}
+
+/* Dark mode fixes */
+body.dark .career-card {
+    background: var(--card-bg);
+    border-color: var(--border-color);
+}
+.error-box {
+    background: #ffebee;
+    border-left: 4px solid #e53935;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 6px;
+    color: #b71c1c;
+    font-size: 16px;
+}

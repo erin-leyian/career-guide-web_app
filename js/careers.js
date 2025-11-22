@@ -11,10 +11,24 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // clear any previous content
+            // 1️⃣ Get category from URL
+            const params = new URLSearchParams(window.location.search);
+            const selectedCategory = params.get("category");
+
+            // 2️⃣ Filter based on category
+            let filteredCareers = data.careers;
+
+            if (selectedCategory) {
+                filteredCareers = data.careers.filter(career =>
+                    career.category.toLowerCase() === selectedCategory.toLowerCase()
+                );
+            }
+
+            // clear previous content
             container.innerHTML = "";
 
-            data.careers.forEach(career => {
+            // 3️⃣ Display filtered careers
+            filteredCareers.forEach(career => {
                 const card = document.createElement("div");
                 card.classList.add("career-card");
 
@@ -35,4 +49,5 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error("Error loading careers:", err);
             container.innerHTML = "<p>Error loading careers.</p>";
         });
+        
 });

@@ -1,62 +1,110 @@
 // js/details.js
+
 document.addEventListener("DOMContentLoaded", () => {
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get("id");
+    const searchInput = document.getElementById("careerSearch");
+    const searchBtn = document.getElementById("apiSearchBtn");
+    const resultsContainer = document.getElementById("job-results");
 
-    const careerInfoBox = document.getElementById("career-info");
-    const jobResultsBox = document.getElementById("job-results");
+    let careers = [];
 
-    // helper to show message
-    function showMessage(target, html) {
-        if (!target) return;
-        target.innerHTML = `<div class="result-card">${html}</div>`;
+    // Reusable error message UI
+    function showError(message) {
+        resultsContainer.innerHTML = `
+            <div class="error-box">
+                <p>⚠️ ${message}</p>
+            </div>
+        `;
     }
 
-    if (!id) {
-        showMessage(careerInfoBox, "<p>No career specified. Use the search or choose a career from the list.</p>");
-        return;
-    }
-
+    // Load careers.json with error handling
     fetch("data/careers.json")
-        .then(res => res.json())
+        .then(res => {
+            if (!res.ok) {
+                throw new Error("Failed to load careers.json");
+            }
+            return res.json();
+        })
         .then(data => {
             if (!data || !Array.isArray(data.careers)) {
-                showMessage(careerInfoBox, "<p>Career data unavailable.</p>");
-                return;
+                throw new Error("careers.json format is invalid.");
             }
 
-            const career = data.careers.find(c => c.name.toLowerCase().replace(/ /g, "-") === id);
-
-            if (!career) {
-                showMessage(careerInfoBox, `<p>Career not found in local data for "<strong>${id}</strong>". Try another search.</p>`);
-                // (Optional) here you could trigger an API search to fetch remote info
-                return;
-            }
-
-            // display career info
-            if (careerInfoBox) {
-                careerInfoBox.innerHTML = `
-                    <div class="result-card">
-                        <h2>${career.name}</h2>
-                        <p>${career.description}</p>
-
-                        <h3>Skills</h3>
-                        <ul>${career.skills.map(s => `<li>${s}</li>`).join("")}</ul>
-
-                        <h3>Salary</h3>
-                        <p>${career.salary}</p>
-
-                        <h3>Related Careers</h3>
-                        <ul>${career.related.map(r => `<li>${r}</li>`).join("")}</ul>
-                    </div>
-                `;
-            }
-
-            // optionally clear job results area (it can be used later for API results)
-            if (jobResultsBox) jobResultsBox.innerHTML = "";
+            careers = data.careers;
+            loadCareerFromURL();
         })
         .catch(err => {
-            console.error("Error reading careers.json:", err);
-            showMessage(careerInfoBox, "<p>Error loading career details.</p>");
+            console.error(err);
+            showError("Could not load career data. Please try again later.");
         });
+
+    // Load career if URL contains ?id=
+    function loadCareerFromURL() {
+        const params = new URLSearchParams(window.location.search);
+        const careerId = params.get("id");
+
+        if (!careerId) return;
+
+        const formattedName = careerId.replace(/-/g, " ").toLowerCase();
+        const career = careers.find(c => c.name.toLowerCase() === formattedName);
+
+        if (!career) {
+            showError(`No results found for "${formattedName}".`);
+            return;
+        }
+
+        displayCareer(career);
+    }
+
+    // Render full details
+    function displayCareer(career) {
+        // validate fields
+        if (!career.name || !career.description) {
+            showError("Career information is incomplete.");
+            return;
+        }
+
+        resultsContainer.innerHTML = `
+            <div class="result-card">
+                <h2>${career.name}</h2>
+                <p>${career.description}</p>
+
+                <h3>Skills Required:</h3>
+                <ul>${(career.skills || []).map(s => `<li>${s}</li>`).join("")}</ul>
+
+                <h3>Salary Range:</h3>
+                <p>${career.salary || "Not available"}</p>
+
+                <h3>Related Careers:</h3>
+                <ul>${(career.related || []).map(r => `<li>${r}</li>`).join("")}</ul>
+            </div>
+        `;
+    }
+
+    // Manual search
+    function searchCareer() {
+        const query = searchInput.value.trim().toLowerCase();
+
+        if (!query) {
+            showError("Please enter a career before searching.");
+            return;
+        }
+
+        const matches = careers.filter(c =>
+            c.name.toLowerCase().includes(query)
+        );
+
+        if (matches.length === 0) {
+            showError(`No careers found matching "${query}".`);
+            return;
+        }
+
+        resultsContainer.innerHTML = "";
+        matches.forEach(displayCareer);
+    }
+
+    // Button + enter key
+    searchBtn?.addEventListener("click", searchCareer);
+    searchInput?.addEventListener("keyup", e => {
+        if (e.key === "Enter") searchCareer();
+    });
 });
