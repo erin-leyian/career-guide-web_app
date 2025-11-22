@@ -15,7 +15,7 @@ body.dark {
 
 /* ——— SIDEBAR ——— */
 #sidebar {
-    width: 240px;
+    width: 200px;
     background: #ffffff;
     height: 100vh;
     padding: 20px;
@@ -69,7 +69,7 @@ body.dark #sidebar nav a:hover {
 
 /* ——— MAIN CONTENT ——— */
 #content {
-    margin-left: 260px;
+    margin-left: 250px;
     padding: 30px;
     width: calc(100% - 260px);
     box-sizing: border-box;
@@ -372,3 +372,145 @@ body.dark {
     --border-color: #333;
     --accent-color: #5ba0ff;
 }
+
+/* ---------- GLOBAL PAGE STYLE ---------- */
+.about-container, .contact-container {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.08);
+    font-family: "Poppins", sans-serif;
+    transition: 0.3s ease;
+}
+
+/* ---------- HEADINGS ---------- */
+.about-container h1, 
+.contact-container h1 {
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: #2a2a2a;
+    margin-bottom: 15px;
+}
+
+.about-container h2,
+.contact-container h2 {
+    font-size: 1.4rem;
+    margin-top: 25px;
+    color: #444;
+    font-weight: 600;
+}
+
+/* ---------- TEXT ---------- */
+.about-container p, 
+.contact-container p, 
+.contact-container label {
+    color: #555;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+/* ---------- ICON SECTION (About Page) ---------- */
+.about-icons {
+    display: flex;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.about-icons div {
+    flex: 1;
+    text-align: center;
+    padding: 25px;
+    background: #f8f9fc;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.about-icons div:hover {
+    transform: translateY(-5px);
+}
+
+.about-icons i {
+    font-size: 35px;
+    color: #4e73df;
+    margin-bottom: 10px;
+}
+
+.about-icons p {
+    margin-top: 7px;
+    color: #333;
+    font-weight: 600;
+}
+
+/* ---------- CONTACT FORM ---------- */
+.contact-container form {
+    margin-top: 25px;
+}
+
+.contact-container label {
+    font-weight: 600;
+}
+
+.contact-container input,
+.contact-container textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+    border: 1.5px solid #ccc;
+    background: #f8f9fc;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+.contact-container input:focus,
+.contact-container textarea:focus {
+    border-color: #4e73df;
+    box-shadow: 0px 0px 6px rgba(78,115,223,0.2);
+}
+
+.contact-container textarea {
+    min-height: 140px;
+}
+
+/* ---------- SEND BUTTON ---------- */
+.contact-container button {
+    width: 100%;
+    padding: 14px;
+    background: #4e73df;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.contact-container button:hover {
+    background: #3c5cc5;
+}
+
+/* ---------- DARK MODE SUPPORT ---------- */
+body.dark .about-container,
+body.dark .contact-container {
+    background: #1f1f1f;
+    color: #eaeaea;
+    box-shadow: 0px 8px 20px rgba(255,255,255,0.05);
+}
+
+body.dark .about-icons div {
+    background: #2b2b2b;
+}
+
+body.dark .contact-container input,
+body.dark .contact-container textarea {
+    background: #2b2b2b;
+    border-color: #555;
+    color: #fff;
+}
+
+/* Icons remain blue in dark mode */

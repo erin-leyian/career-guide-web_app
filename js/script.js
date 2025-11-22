@@ -1,65 +1,59 @@
-// LOAD CAREERS.JSON 
+// js/script.js
+// Load careers.json for quick local lookups (used by homepage if needed)
 let careerData = {};
 
-fetch("data/careers.json")
-    .then(response => response.json())
-    .then(data => {
-        careerData = data;
-        console.log("Career data loaded:", careerData.careers);
-    })
-    .catch(error => {
-        console.error("Error loading career data:", error);
-    });
+document.addEventListener("DOMContentLoaded", () => {
+    // Load JSON
+    fetch("data/careers.json")
+        .then(response => response.json())
+        .then(data => {
+            careerData = data;
+            console.log("Career data loaded:", careerData.careers);
+        })
+        .catch(error => {
+            console.error("Error loading career data:", error);
+        });
 
-// ------------------ SEARCH BUTTON ------------------
-document.getElementById("searchBtn").addEventListener("click", () => {
-    const query = document.getElementById("searchInput").value.trim();
+    // Homepage search redirect: convert query to slug and open career page
+    const searchBtn = document.getElementById("searchBtn");
+    const searchInput = document.getElementById("searchInput");
 
-    if (query === "") {
-        alert("Please enter a career to search.");
-        return;
+    if (searchBtn && searchInput) {
+        searchBtn.addEventListener("click", () => {
+            const query = searchInput.value.trim();
+            if (!query) return alert("Please enter a career");
+
+            const slug = query.toLowerCase().trim().replace(/\s+/g, "-");
+            window.location.href = `career.html?id=${encodeURIComponent(slug)}`;
+        });
     }
-
-    searchCareer(query);
 });
 
-// ------------------ SEARCH FUNCTION ------------------
-function searchCareer(query) {
+// Optional utility: local search & display on page (if you ever want to show results inline)
+function searchCareerLocal(query) {
+    const careersArray = (careerData && careerData.careers) || [];
+    if (!careersArray.length) {
+        displayMessage("Career data not loaded yet. Try again.");
+        return null;
+    }
+
     const formatted = query.toLowerCase();
-    const careersArray = careerData.careers;
-
-    if (!careersArray) {
-        displayMessage("Career data not loaded yet. Please try again.");
-        return;
-    }
-
-    const foundCareer = careersArray.find(career =>
-        career.name.toLowerCase() === formatted
-    );
-
-    if (!foundCareer) {
-        displayMessage("No career found. Try another search.");
-        return;
-    }
-
-    displayCareerInfo(foundCareer);
+    const foundCareer = careersArray.find(career => career.name.toLowerCase() === formatted);
+    return foundCareer || null;
 }
 
-// ------------------ DISPLAY CAREER ------------------
-function displayCareerInfo(career) {
-    document.getElementById("results-section").innerHTML = `
+function displayCareerInfoInline(career) {
+    const results = document.getElementById("results-section");
+    if (!results) return;
+    results.innerHTML = `
         <div class="result-card">
             <h2>${career.name}</h2>
-
             <p><strong>Description:</strong> ${career.description}</p>
-
             <p><strong>Salary Range:</strong> ${career.salary}</p>
-
             <p><strong>Key Skills:</strong></p>
             <ul>
                 ${career.skills.map(skill => `<li>${skill}</li>`).join("")}
             </ul>
-
             <p><strong>Related Careers:</strong></p>
             <ul>
                 ${career.related.map(item => `<li>${item}</li>`).join("")}
@@ -68,12 +62,12 @@ function displayCareerInfo(career) {
     `;
 }
 
-// ------------------ MESSAGE BOX ------------------
 function displayMessage(msg) {
-    document.getElementById("results-section").innerHTML = `
+    const results = document.getElementById("results-section");
+    if (!results) return;
+    results.innerHTML = `
         <div class="result-card">
             <p>${msg}</p>
         </div>
     `;
 }
-

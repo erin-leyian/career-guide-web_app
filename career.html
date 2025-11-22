@@ -6,15 +6,16 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
 <div id="sidebar">
     <h2 class="logo">CareerAI</h2>
 
     <nav>
         <a href="index.html"><span>🏠</span> Home</a>
-        <a href="pages/careers.html"><span>📚</span> Careers</a>
-        <a href="pages/career.html"><span>🔍</span> Search Career</a>
-        <a href="pages/about.html"><span>ℹ️</span> About</a>
-        <a href="pages/contact.html"><span>📞</span> Contact</a>
+        <a href="careers.html"><span>📚</span> Careers</a>
+        <a href="career.html"><span>🔍</span> Search Career</a>
+        <a href="about.html"><span>ℹ️</span> About</a>
+        <a href="contact.html"><span>📞</span> Contact</a>
     </nav>
 
     <div class="theme-toggle">
@@ -28,23 +29,24 @@
 
 <!-- Main Content Wrapper -->
 <div id="content">
-    <!-- Your page content stays here -->
-</div> <!-- end of content -->
 
-<header>
-    <h1>Career Details</h1>
-</header>
+  <header class="main-header">
+     <h1>Career Details</h1>
+     <p class="subtitle">Search and explore job roles instantly</p>
+  </header>
 
-<section id="api-section">
+  <section id="api-section">
     <input id="careerSearch" placeholder="Search job roles..." />
     <button id="apiSearchBtn">Search</button>
-</section>
+  </section>
 
 <section id="career-info"></section>
 <section id="job-results"></section>
 
+</div> 
+
 <script src="js/details.js"></script>
-<script src="/js/sidebar.js"></script>
+<script src="js/sidebar.js"></script>
 
 </body>
 </html>
