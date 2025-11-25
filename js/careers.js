@@ -1,4 +1,5 @@
 // js/careers.js
+
 document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById("careers-list");
     if (!container) return; // nothing to do if element is missing

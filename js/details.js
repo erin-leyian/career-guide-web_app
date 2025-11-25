@@ -97,20 +97,16 @@ document.addEventListener("DOMContentLoaded", () => {
 // Public demo endpoint
 
 async function fetchJobs(query) {
-    const url = `https://jsearch.p.rapidapi.com/search?query=${encodeURIComponent(query)}&num_pages=1`;
+    const url = `/api/jobs?q=${encodeURIComponent(query)}`;
 
     const jobsContainer = document.getElementById("career-info");
     jobsContainer.innerHTML = "<p>Searching for live jobs...</p>";
 
     try {
-        const response = await fetch(url, {
-            method: "GET",
-            headers: {
-                "x-rapidapi-host": "jsearch.p.rapidapi.com"
-            }
-        });
-
+        const response = await fetch(url);
         const data = await response.json();
+
+        console.log("Jobs from backend:", data);
 
         if (!data.data || data.data.length === 0) {
             jobsContainer.innerHTML = "<p>No live job postings found.</p>";
