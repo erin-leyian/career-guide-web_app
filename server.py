@@ -37,10 +37,7 @@ def get_jobs():
 
     try:
         response = requests.get(url, headers=headers, params=params, timeout=15)
-
-        # Parse JSON safely
         data = response.json()
-
         return jsonify(data)
 
     except Exception as e:
@@ -48,4 +45,4 @@ def get_jobs():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=5000, debug=True)

@@ -14,46 +14,29 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error("Error loading career data:", error);
         });
 
-  // Homepage search using actual JSON data
-const searchBtn = document.getElementById("searchBtn");
-const searchInput = document.getElementById("searchInput");
+    // Homepage search - now works with ANY career (not just local JSON)
+    const searchBtn = document.getElementById("searchBtn");
+    const searchInput = document.getElementById("searchInput");
 
-if (searchBtn && searchInput) {
-    searchBtn.addEventListener("click", () => {
-        const query = searchInput.value.trim().toLowerCase();
-        if (!query) return alert("Please enter a career");
+    if (searchBtn && searchInput) {
+        searchBtn.addEventListener("click", () => {
+            const query = searchInput.value.trim();
+            if (!query) return alert("Please enter a career");
 
-        fetch("data/careers.json")
-            .then(res => res.json())
-            .then(data => {
-                if (!data || !Array.isArray(data.careers)) {
-                    alert("Career list unavailable.");
-                    return;
-                }
+            // Convert query to slug format
+            const slug = query.toLowerCase().replace(/\s+/g, "-");
 
-                // find the career by name (case-insensitive)
-                const result = data.careers.find(c =>
-                    c.name.toLowerCase() === query
-                );
+            // Redirect to career page (will handle both local and API search)
+            window.location.href = `career.html?id=${encodeURIComponent(slug)}`;
+        });
 
-                if (!result) {
-                    alert("Career not found.");
-                    return;
-                }
-
-                // convert actual name to slug
-                const slug = result.name.toLowerCase().replace(/\s+/g, "-");
-
-                // redirect to career page
-                window.location.href = `career.html?id=${encodeURIComponent(slug)}`;
-            })
-            .catch(err => {
-                console.error("Error loading careers:", err);
-                alert("Could not search at the moment.");
-            });
-    });
-}
-
+        // Allow Enter key to search
+        searchInput.addEventListener("keyup", (e) => {
+            if (e.key === "Enter") {
+                searchBtn.click();
+            }
+        });
+    }
 });
 
 // Optional utility: local search & display on page (if you ever want to show results inline)
