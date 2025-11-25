@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const searchInput = document.getElementById("careerSearch");
     const searchBtn = document.getElementById("apiSearchBtn");
     const resultsContainer = document.getElementById("job-results");
+    const careerInfoContainer = document.getElementById("career-info");
 
     let careers = [];
 
@@ -90,48 +91,74 @@ document.addEventListener("DOMContentLoaded", () => {
     searchInput.addEventListener("keyup", e => {
         if (e.key === "Enter") searchCareer();
     });
-});
 
+    // 🔥 JSEARCH API INTEGRATION
+    async function fetchJobs(query) {
+        const url = `http://localhost:5000/api/jobs?q=${encodeURIComponent(query)}`;
 
-//  JSEARCH (NO API KEY VERSION)
-// Public demo endpoint
+        careerInfoContainer.innerHTML = "<p>🔍 Searching for live jobs...</p>";
 
-async function fetchJobs(query) {
-    const url = `/api/jobs?q=${encodeURIComponent(query)}`;
+        try {
+            const response = await fetch(url);
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            
+            const data = await response.json();
 
-    const jobsContainer = document.getElementById("career-info");
-    jobsContainer.innerHTML = "<p>Searching for live jobs...</p>";
+            console.log("Jobs from backend:", data);
 
-    try {
-        const response = await fetch(url);
-        const data = await response.json();
+            // Check if there's an error from backend
+            if (data.error) {
+                careerInfoContainer.innerHTML = `<p class="error-box">❌ ${data.error}</p>`;
+                return;
+            }
 
-        console.log("Jobs from backend:", data);
+            // Check if jobs exist
+            if (!data.data || data.data.length === 0) {
+                careerInfoContainer.innerHTML = "<p>No live job postings found for this career.</p>";
+                return;
+            }
 
-        if (!data.data || data.data.length === 0) {
-            jobsContainer.innerHTML = "<p>No live job postings found.</p>";
-            return;
-        }
+            // Display jobs
+            careerInfoContainer.innerHTML = "<h2>🌐 Live Job Opportunities</h2>";
 
-        jobsContainer.innerHTML = "<h2>Live Job Opportunities</h2>";
+            data.data.slice(0, 10).forEach(job => {
+                const jobDiv = document.createElement("div");
+                jobDiv.classList.add("job-card");
 
-        data.data.forEach(job => {
-            const jobDiv = document.createElement("div");
-            jobDiv.classList.add("job-card");
+                const description = job.job_description 
+                    ? job.job_description.substring(0, 200) + "..." 
+                    : "No description available";
 
-            jobDiv.innerHTML = `
-                <h3>${job.job_title}</h3>
-                <p><strong>Company:</strong> ${job.employer_name}</p>
-                <p><strong>Location:</strong> ${job.job_city || "Unknown"}</p>
-                <p>${job.job_description.substring(0, 200)}...</p>
-                <a href="${job.job_apply_link}" target="_blank" class="apply-btn">Apply</a>
+                const location = job.job_city && job.job_country 
+                    ? `${job.job_city}, ${job.job_country}` 
+                    : job.job_city || job.job_country || "Remote/Unknown";
+
+                jobDiv.innerHTML = `
+                    <h3>${job.job_title || "Untitled Position"}</h3>
+                    <p><strong>Company:</strong> ${job.employer_name || "Unknown"}</p>
+                    <p><strong>Location:</strong> ${location}</p>
+                    <p>${description}</p>
+                    ${job.job_apply_link ? `<a href="${job.job_apply_link}" target="_blank" class="apply-btn">Apply Now →</a>` : ""}
+                `;
+
+                careerInfoContainer.appendChild(jobDiv);
+            });
+
+        } catch (error) {
+            console.error("Error fetching jobs:", error);
+            careerInfoContainer.innerHTML = `
+                <div class="error-box">
+                    <p>❌ Error loading live jobs. Please check:</p>
+                    <ul>
+                        <li>Is the Flask server running? (python server.py)</li>
+                        <li>Is the API key valid?</li>
+                        <li>Check browser console for details</li>
+                    </ul>
+                </div>
             `;
-
-            jobsContainer.appendChild(jobDiv);
-        });
-
-    } catch (error) {
-        console.error(error);
-        jobsContainer.innerHTML = "<p>Error loading live jobs.</p>";
+        }
     }
-}
+});

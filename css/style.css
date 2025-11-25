@@ -584,3 +584,71 @@ body.dark .career-card {
     color: #b71c1c;
     font-size: 16px;
 }
+#career-info {
+    margin-top: 30px;
+    padding: 20px;
+}
+
+#career-info h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.job-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.job-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.job-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.4rem;
+    color: var(--accent-color);
+}
+
+.job-card p {
+    margin: 8px 0;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.job-card strong {
+    color: var(--accent-color);
+}
+
+.apply-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.apply-btn:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+}
+
+/* Dark mode adjustments */
+body.dark .job-card {
+    background: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+body.dark .apply-btn {
+    background: #5ba0ff;
+}
