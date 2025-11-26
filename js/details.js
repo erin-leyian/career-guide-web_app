@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 🔥 ENHANCED API INTEGRATION with Statistics
     async function fetchJobs(query) {
-        const url = `http://localhost:5000/api/jobs?q=${encodeURIComponent(query)}`;
+        const url = const url = `/api/jobs?q=${encodeURIComponent(query)}`;
         careerInfoContainer.innerHTML = "<p>🔍 Searching for live jobs...</p>";
 
         try {
